@@ -11,6 +11,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def edit
+  @post = Post.find(params[:id])
+  end
+
   def create
   @post = Post.new(post_params)
  
@@ -19,7 +23,7 @@ class PostsController < ApplicationController
   else
     render 'new'
   end
-end
+  end
  
 def update
   @post = Post.find(params[:id])
@@ -29,7 +33,7 @@ def update
   else
     render 'edit'
   end
-end
+  end
  
 private
   def post_params
