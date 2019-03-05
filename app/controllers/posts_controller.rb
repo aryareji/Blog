@@ -12,11 +12,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-  @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def create
-  @post = Post.new(post_params)
+    @post = Post.new(post_params)
  
   if @post.save
     redirect_to @post
@@ -25,8 +25,8 @@ class PostsController < ApplicationController
   end
   end
  
-def update
-  @post = Post.find(params[:id])
+  def update
+    @post = Post.find(params[:id])
  
   if @post.update(post_params)
     redirect_to @post
@@ -36,9 +36,9 @@ def update
   end
 
   def destroy
-  @post = Post.find(params[:id])
-  @post.destroy
-  redirect_to posts_path
+    @post = Post.find(params[:id])
+    @post.destroy
+    edirect_to posts_path
   end
   private
   def post_params
