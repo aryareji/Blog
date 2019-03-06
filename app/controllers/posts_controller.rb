@@ -1,4 +1,4 @@
-# post validation controller
+# post updation controller file
 class PostsController < ApplicationController
   def new
     @post = Post.new
@@ -12,9 +12,12 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
   def create
     @post = Post.new(post_params)
-
     if @post.save
       redirect_to @post
     else
@@ -24,7 +27,6 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-
     if @post.update(post_params)
       redirect_to @post
     else
