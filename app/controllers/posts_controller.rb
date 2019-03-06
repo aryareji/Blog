@@ -1,19 +1,24 @@
-# createfeature code
+# Post controller
 class PostsController < ApplicationController
-  def new end;
+  def new; end
 
-  def index end;
+  def index
+    @posts = Post.all
+  end
 
-  def show end;
+  def show
+    @post = Post.find(params[:id])
+  end
 
   def create
-   @post = Post.new(post_params)
-   @post.save
-   redirect_to @post
+    @post = Post.new(post_params)
+    @post.save
+    redirect_to @post
   end
 
   private
-   def post_params
+
+  def post_params
     params.require(:post).permit(:title, :text)
-   end
+  end
 end
