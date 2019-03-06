@@ -1,4 +1,4 @@
-# post updation controller file
+# Post controller
 class PostsController < ApplicationController
   def new
     @post = Post.new
@@ -32,6 +32,12 @@ class PostsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
   end
 
   private
