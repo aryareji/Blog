@@ -1,37 +1,39 @@
+# post validation controller
 class PostsController < ApplicationController
   def new
-     @post = Post.new
+    @post = Post.new
   end
 
   def index
     @posts = Post.all
   end
- 
+
   def show
     @post = Post.find(params[:id])
   end
 
   def create
-  @post = Post.new(post_params)
- 
-  if @post.save
-    redirect_to @post
-  else
-    render 'new'
+    @post = Post.new(post_params)
+
+    if @post.save
+      redirect_to @post
+    else
+      render 'new'
+    end
   end
-end
- 
-def update
-  @post = Post.find(params[:id])
- 
-  if @post.update(post_params)
-    redirect_to @post
-  else
-    render 'edit'
+
+  def update
+    @post = Post.find(params[:id])
+
+    if @post.update(post_params)
+      redirect_to @post
+    else
+      render 'edit'
+    end
   end
-end
- 
-private
+
+  private
+
   def post_params
     params.require(:post).permit(:title, :text)
   end
