@@ -1,7 +1,7 @@
 # post controller rendering
 class PostsController < ApplicationController
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def index
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to @post
     else
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    edirect_to posts_path
+    redirect_to posts_path
   end
 
   private
