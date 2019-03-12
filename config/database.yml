@@ -22,8 +22,8 @@ development:
 test:
   <<: *default
   database: test_myblog_db
-  
- production:
+
+production:
   <<: *default
   database: myapp_production
   username: myapp
