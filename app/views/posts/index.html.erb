@@ -3,6 +3,7 @@
    <%= paginate(@posts) %>
     <% @posts.each do |post| %>
      <div>
+      <h6><%= image_tag post.image.url %></h6>
       <h2><u><%= post.title %></u></h2>
       <h5><%= post.text %></h5>
        <%= link_to 'Show', post_path(post), class: "btn btn-success" %>

@@ -10,7 +10,9 @@
 <strong>Posted On:</strong>
   <%= @post.created_at %>
 </p>
-<img class="card-img-top" src="http://placehold.it/750x300" alt="">
+<p>
+<%= image_tag @post.image.url %>
+</p>
 <p>
 <strong>Text:</strong>
   <%= @post.text %>
