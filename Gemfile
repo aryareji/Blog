@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'carrierwave', '~> 1.0'
+gem 'overcommit', require: false
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
