@@ -1,11 +1,11 @@
-# post controller rendering
+# post controller rendering 
 class PostsController < ApplicationController
   def new
     @post = current_user.posts.build
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page]).per(2)
   end
 
   def show
@@ -43,6 +43,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :text)
+    params.require(:post).permit(:title, :text, :image)
   end
 end
