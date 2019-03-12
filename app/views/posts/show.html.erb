@@ -1,18 +1,24 @@
 <p>
-  <strong>Title:</strong>
+<strong>Title:</strong>
   <%= @post.title %>
 </p>
- 
 <p>
-  <strong>Text:</strong>
+<strong>Posted By:</strong>
+  <%= @post.user.email %>
+</p>
+<p>
+<strong>Posted On:</strong>
+  <%= @post.created_at %>
+</p>
+<img class="card-img-top" src="http://placehold.it/750x300" alt="">
+<p>
+<strong>Text:</strong>
   <%= @post.text %>
 </p>
- 
 <h2>Comments</h2>
 <%= render @post.comments %>
- 
 <h2>Add a comment:</h2>
 <%= render 'comments/form' %>
- 
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
